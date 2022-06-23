@@ -1,4 +1,4 @@
-import {fs} from 'fs';
+//import * as fs from 'fs'
 var pass
 var user
 
@@ -10,11 +10,12 @@ function mailOwners(){
 
 
 function login() {
-    user = document.getElementById('username').innerText()
-    pass = document.getElementById('password').innerText()
+    user = document.getElementById('username').value
+    pass = document.getElementById('password').value
     
     // SHA256(pass)
-    fs.readFile('./private/.userpass', continueLogin(err, data))
+    var reader = new FileReader();
+    reader.readAsText('', './private/.userpass', 'UTF-8')
 }
 
 
